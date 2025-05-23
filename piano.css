@@ -125,7 +125,6 @@ body {
 .black-key:nth-of-type(11) { left: 550px; }
 
 .note-image {
-  display: none;
   margin-top: 6px;
   height: 150px;
   width: 80px;
