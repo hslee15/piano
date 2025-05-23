@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="piano.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>
+      <img src="image/note.png" alt="음표" class="note-icon" />
+      피아노 연습
+      <img src="image/note2.png" alt="음표" class="note-icon" />
+    </h1>
+    <button id="toggle-score" class="header-score-button">악보 보기</button>
+  </header>
+
+    <div class="main-content">
+      <div class="left-panel">
+        <div class="piano-wrapper">
+          <div class="piano">
+              <div class="white-key" id="C"></div>
+              <div class="black-key" id="Cs"></div>
+              <div class="white-key" id="D"></div>
+              <div class="black-key" id="Ds"></div>
+              <div class="white-key" id="E"></div>
+              <div class="white-key" id="F"></div>
+              <div class="black-key" id="Fs"></div>
+              <div class="white-key" id="G"></div>
+              <div class="black-key" id="Gs"></div>
+              <div class="white-key" id="A"></div>
+              <div class="black-key" id="As"></div>
+              <div class="white-key" id="B"></div>
+          </div>
+        </div>
+        <div id="key-display" class="key-display"></div>
+        <img id="note-image" class="note-image" src="" alt="음표 이미지" />
+      </div>
+      <div id="score-view" class="score-view hidden">
+        <img src="image/music.png" alt="악보 이미지" />
+      </div>
+    </div>
+</body>
+
+    <audio id="audio-C" src="sound/C.mp3"></audio>
+    <audio id="audio-Cs" src="sound/Cs.mp3"></audio>
+    <audio id="audio-D" src="sound/D.mp3"></audio>
+    <audio id="audio-Ds" src="sound/Ds.mp3"></audio>
+    <audio id="audio-E" src="sound/E.mp3"></audio>
+    <audio id="audio-F" src="sound/F.mp3"></audio>
+    <audio id="audio-Fs" src="sound/Fs.mp3"></audio>
+    <audio id="audio-G" src="sound/G.mp3"></audio>
+    <audio id="audio-Gs" src="sound/Gs.mp3"></audio>
+    <audio id="audio-A" src="sound/A.mp3"></audio>
+    <audio id="audio-As" src="sound/As.mp3"></audio>
+    <audio id="audio-B" src="sound/B.mp3"></audio>
+
+    <script>
+      const keys = ['C','Cs','D','Ds','E','F','Fs','G','Gs','A','As','B'];
+      const keyToNote = {
+        C: 'C',
+        Cs: 'C-sharp',
+        D: 'D',
+        Ds: 'D-sharp',
+        E: 'E',
+        F: 'F',
+        Fs: 'F-sharp',
+        G: 'G',
+        Gs: 'G-sharp',
+        A: 'A',
+        As: 'A-sharp',
+        B: 'B'
+      };
+      keys.forEach(key => {
+        document.getElementById(key).addEventListener('click', () => {
+          const audio = document.getElementById(`audio-${key}`);
+          audio.currentTime = 0;
+          audio.play();
+          document.getElementById('key-display').textContent = `${key} 키 입니다.`;
+          const noteName = keyToNote[key];
+          document.getElementById('note-image').src = `image/${noteName}.png`;
+        });
+      });
+    </script>
+    <script>
+      document.getElementById('toggle-score').addEventListener('click', () => {
+        document.getElementById('score-view').classList.toggle('hidden');
+      });
+    </script>
+</html>
