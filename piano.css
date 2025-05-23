@@ -1,0 +1,145 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px;
+}
+
+.left-panel {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-view {
+  flex: 4;
+  padding: 20px;
+}
+
+.score-view.hidden {
+  display: none;
+}
+
+.score-view img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  background: lightgoldenrodyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 50px 50px;
+  font-family: 'Playfair Display', serif;
+}
+
+.piano-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.score-button {
+  margin-top: 35px;
+}
+
+#toggle-score {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.piano {
+  position: relative;
+  width: 700px;
+  height: 250px;
+  margin-top: 10px;
+  border: 15px solid burlywood;
+  border-radius: 3px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(230, 197, 153);
+  padding: 3px 0;
+  z-index: 10;
+  text-align: center;
+}
+
+.header-score-button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: lightgoldenrodyellow;
+  border: 2px solid rgba(165, 42, 42, 0.473);
+  border-radius: 4px;
+}
+.header-score-button:hover {
+  background: burlywood;
+}
+
+.white-key {
+  width: 100px;
+  height: 250px;
+  background: white;
+  border: 1px solid #999;
+  float: left;
+  box-sizing: border-box;
+  transition: transform 0.1s;
+}
+
+.white-key:hover {
+  background: #eee;
+  transform: scaleY(0.98);
+}
+
+.black-key {
+  width: 50px;
+  height: 150px;
+  background: black;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-radius: 0 0 5px 5px;
+  transition: transform 0.1s;
+}
+
+.black-key:hover {
+  background: #3c3c3c;
+  transform: scaleY(0.95);
+}
+
+.black-key:nth-of-type(2) { left: 50px; }
+.black-key:nth-of-type(4) { left: 150px; }
+.black-key:nth-of-type(7) { left: 350px; }
+.black-key:nth-of-type(9) { left: 450px; }
+.black-key:nth-of-type(11) { left: 550px; }
+
+.note-image {
+  display: none;
+  margin-top: 6px;
+  height: 150px;
+  width: 80px;
+}
+
+.key-display {
+  margin: 40px;
+  font-size: 30px;
+  color: #333;
+  height: 30px;
+}
+.note-icon {
+  width: 70px;
+  height: 70px;
+  vertical-align: middle;
+  margin: 0 20px;
+}
